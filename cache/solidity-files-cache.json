@@ -1,0 +1,223 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/haelim/Documents/ch2_erc20/contracts/ERC20.sol": {
+      "lastModificationDate": 1692648735589,
+      "contentHash": "79e4289c54a41413e5ce8ebc37a238b3",
+      "sourceName": "contracts/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "./utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/haelim/Documents/ch2_erc20/contracts/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1692648809691,
+      "contentHash": "b805213049c239cf49f03bcf66da0b6b",
+      "sourceName": "contracts/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/Users/haelim/Documents/ch2_erc20/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1692648809703,
+      "contentHash": "244f46be41856150d2333b5d3bb2ad80",
+      "sourceName": "contracts/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/haelim/Documents/ch2_erc20/contracts/utils/Context.sol": {
+      "lastModificationDate": 1692648809713,
+      "contentHash": "c4b296fb9a98a645ca52cc72c3fbae06",
+      "sourceName": "contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/haelim/Documents/ch2_erc20/contracts/MyToken.sol": {
+      "lastModificationDate": 1692649361327,
+      "contentHash": "f5a8a93aa5e59b73acc1c3194adda970",
+      "sourceName": "contracts/MyToken.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "MyToken"
+      ]
+    },
+    "/Users/haelim/Documents/ch2_erc20/contracts/Lock.sol": {
+      "lastModificationDate": 1692648675284,
+      "contentHash": "ae66265769cc28ebdaa34881df95bc5e",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    }
+  }
+}
