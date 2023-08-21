@@ -28,7 +28,7 @@ describe("Test MyToken", function () {
   });
 
   describe("Mint", async () => {
-    it.only("Only Minter can mint", async () => {
+    it("Only Minter can mint", async () => {
       const {myToken, owner, user} = await loadFixture(initTest);
       
       await expect (myToken.connect(user).mint(user.address, toEther(1))).to.be.reverted
