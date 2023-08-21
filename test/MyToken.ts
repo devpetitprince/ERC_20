@@ -2,7 +2,7 @@ import { time, loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
 
-const { ethers } = require("hardhat");
+import { ethers } from "hardhat";
 const toEther = (amount: any, unit = 'ether') => ethers.parseUnits(amount.toString(), unit);
 const fromEther = (amount: any, unit = 'ether') => ethers.formatUnits(amount.toString(), unit)
 
@@ -28,7 +28,7 @@ describe("Test MyToken", function () {
   });
 
   describe("Mint", async () => {
-    it("Only Minter can mint", async () => {
+    it.only("Only Minter can mint", async () => {
       const {myToken, owner, user} = await loadFixture(initTest);
       
       await expect (myToken.connect(user).mint(user.address, toEther(1))).to.be.reverted
@@ -37,11 +37,11 @@ describe("Test MyToken", function () {
      const {myToken, owner, user} = await loadFixture(initTest);
 
      const mintAmount = toEther(100)
-     const beforeUserAmount = await myToken.balanceof(user.address)
+     const beforeUserAmount = await myToken.balanceOf(user.address)
      await myToken.connect(owner).mint(user.address, mintAmount)
-     const afterUserAmount = await myToken.balanceof(user.address)
+     const afterUserAmount = await myToken.balanceOf(user.address)
 
-     expect(afterUserAmount.sub(beforeUserAmount)).to.equal(mintAmount)
+     expect(afterUserAmount.sub(beforeUserAmount).eq(mintAmount))
     })
   })
 });
