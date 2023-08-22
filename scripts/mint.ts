@@ -5,7 +5,7 @@ const toEther = (amount: any, unit = 'ether') => ethers.parseUnits(amount.toStri
 async function main() {
     const [owner] = await ethers.getSigners()
 
-    const token = await ethers.getContractAt("MyToken", "0x80F4089dc04a36877026083181e0Aa51d257Bc30")
+    const token = await ethers.getContractAt("MyToken", "0xa800fccac5c68771618b0267fed83c37502fbc4b")
 
     await token.mint(owner.address, toEther(100))
 }

@@ -3,45 +3,48 @@ import { anyValue } from "@nomicfoundation/hardhat-chai-matchers/withArgs";
 import { expect } from "chai";
 
 import { ethers } from "hardhat";
-const toEther = (amount: any, unit = 'ether') => ethers.parseUnits(amount.toString(), unit);
-const fromEther = (amount: any, unit = 'ether') => ethers.formatUnits(amount.toString(), unit)
+const toEther = (amount: any, unit = "ether") =>
+  ethers.parseUnits(amount.toString(), unit);
+const fromEther = (amount: any, unit = "ether") =>
+  ethers.formatUnits(amount.toString(), unit);
 
 describe("Test MyToken", function () {
   async function initTest() {
     const [owner, user] = await ethers.getSigners();
 
-    const tokenFactory = await ethers.getContractFactory("MyToken");
-    const myToken = await tokenFactory.deploy();
+    const myToken = await ethers.deployContract("MyToken");
 
-    return { myToken, owner, user }
+    await myToken.waitForDeployment();
+
+    return { myToken, owner, user };
   }
 
-  describe("Deployment", async () => {
+  describe("Deployment", () => {
     it("Check token meta data", async () => {
-      const {myToken, owner} = await loadFixture(initTest);
+      const { myToken, owner } = await initTest();
 
       expect(await myToken.minter()).to.equal(owner.address);
-      expect(await myToken.name()).to.eql("Whale Token");
-      expect(await myToken.symbol()).to.equal("WHLE");
-
+      expect(await myToken.name()).to.equal("Fish Token");
+      expect(await myToken.symbol()).to.equal("FISH");
     });
   });
 
-  describe("Mint", async () => {
-    it.only("Only Minter can mint", async () => {
-      const {myToken, owner, user} = await loadFixture(initTest);
-      
-      await expect (myToken.connect(user).mint(user.address, toEther(1))).to.be.reverted
-    })
+  describe("Mint", () => {
+    it("Only Minter can mint", async () => {
+      const { myToken, user } = await loadFixture(initTest);
+
+      await expect(myToken.connect(user).mint(user.address, toEther(1))).to.be
+        .reverted;
+    });
     it.only("Mint exact amount", async () => {
-     const {myToken, owner, user} = await loadFixture(initTest);
+      const { myToken, owner, user } = await loadFixture(initTest);
 
-     const mintAmount = toEther(100)
-     const beforeUserAmount = await myToken.balanceOf(user.address)
-     await myToken.connect(owner).mint(user.address, mintAmount)
-     const afterUserAmount = await myToken.balanceOf(user.address)
+      const mintAmount = toEther(100);
 
-     expect(afterUserAmount.sub(beforeUserAmount).eq(mintAmount))
-    })
-  })
+      const beforeUserAmount = await myToken.balanceOf(user.address);
+      await myToken.connect(owner).mint(user.address, mintAmount);
+      const afterUserAmount = await myToken.balanceOf(user.address);
+      expect(afterUserAmount - beforeUserAmount).eq(mintAmount);
+    });
+  });
 });

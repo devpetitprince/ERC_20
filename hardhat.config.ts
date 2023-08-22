@@ -17,7 +17,7 @@ const config: HardhatUserConfig = {
     hardhat: {
       forking: {
         // url: 'https://bsc-dataseed1.binance.org/',
-        url: 'https://baobab01.fautor.app/',
+        url: 'https://api.baobab.klaytn.net:8651',
       },
       accounts: {
         mnemonic:  "test test test test test test test test test test test junk",
@@ -25,7 +25,7 @@ const config: HardhatUserConfig = {
       }
     },
     baobab: {
-      url: 'https://baobab01.fautor.app/',
+      url: 'https://api.baobab.klaytn.net:8651',
       accounts: [require('./secret.json').private]
     }
   }
