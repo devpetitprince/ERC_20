@@ -6,7 +6,6 @@ async function main() {
   const tokenFactory = await ethers.getContractFactory("MyToken")
   const token = await tokenFactory.deploy();
 
-  const event = await ethers.deployContract("Event");
   console.log(`The token ${await token.name()}(${await token.symbol()}) is deployed`);
   console.log(`Token Address is ${await token.getAddress()}`);
   console.log(`Token minter: ${await token.minter()}`)
